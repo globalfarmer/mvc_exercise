@@ -4,7 +4,7 @@
  */
 
 var express = require('express'),
-	http = require('http'),
+	http = require('https'),
 	path = require('path'),
 	config = require('./config')(),
 	app = express(),
