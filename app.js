@@ -4,7 +4,7 @@
  */
 
 var express = require('express'),
-	http = require('https'),
+	http = require('http'),
 	path = require('path'),
 	config = require('./config')(),
 	app = express(),
@@ -63,7 +63,7 @@ MongoClient.connect('mongodb://mvc:mvc@ds111851.mlab.com:11851/exercise', functi
 		app.all('/', attachDB, function(req, res, next) {
 			Home.run(req, res, next);
 		});
-		http.createServer(app).listen(config.port, function() {
+		http.createServer(app).listen(process.env.PORT || 3000, function() {
 			//  	console.log(
 				// 		'Successfully connected to mongodb://' + config.mongo.host + ':' + config.mongo.port,
 				// 		'\nExpress server listening on port ' + config.port
